@@ -1,7 +1,12 @@
 from entity import *
+from battle import *
 
 
-    
-playerGenerator()
-print(monsterGenerator())
+playerCharacter = playerGenerator()
+currentMonster = monsterGenerator()
+
+
+battleStart(playerCharacter,currentMonster)
+
+
 

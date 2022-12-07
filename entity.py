@@ -21,6 +21,7 @@ class Player:
             self.level + 1
             self.xp - 100
 
+
            
 
 
@@ -43,15 +44,12 @@ class Monster:
        playerCharacter.updateExperience(self.level)
     
                 
-    
 
-
-
-monsterQualities = {"Cute":0,"Slow":1,"Tiny":3,"Normal":4,"Huge":5,"Angry":6,"Vicious":7,"Deadly":8}
-monsterTypes = {"Pig":0,"Bat":1,"Bear":2,"Slime":3,"Goblin":4,"Dwarf":5,"Elf":6,"Orc":7,"Dragon":8,"Beholder":9}
 
 
 def monsterGenerator():
+    monsterQualities = {"Cute":0,"Slow":1,"Tiny":3,"Normal":4,"Huge":5,"Angry":6,"Vicious":7,"Deadly":8}
+    monsterTypes = {"Pig":0,"Bat":1,"Bear":2,"Slime":3,"Goblin":4,"Dwarf":5,"Elf":6,"Orc":7,"Dragon":8,"Beholder":9}
 
     monQuality = random.choice(list(monsterQualities.keys()))
     monType = random.choice(list(monsterTypes.keys()))
@@ -67,7 +65,7 @@ def monsterGenerator():
 
 def playerGenerator():
     global playerCharacter
-    playerName = input("What is your name? \n\n")
+    playerName = "Greg" #input("What is your name? \n\n")
     playerCharacter = Player(playerName)
 
 
