@@ -11,6 +11,7 @@ class Player:
     def updateHealth(self,healthDamage):
         if healthDamage >= self.health:
             print("You are dead {name}".format(name=self.name))
+            quit()
         else:
             self.health = self.health - healthDamage
 
@@ -28,15 +29,17 @@ class Player:
 
 class Monster:
 
-    def __init__(self, health, level, name):
+    def __init__(self, health, level, name,difficulty):
         self.health = health
         self.level = level
         self.name = name
+        self.difficulty = difficulty
 
 
     def updateHealth(self,healthDamage):
         if healthDamage >= self.health:
             print("{name} has slain the {monName}".format(name=playerCharacter.name,monName=self.name))
+            quit()
         else:
             self.health = self.health - healthDamage
 
@@ -53,20 +56,21 @@ def monsterGenerator():
 
     monQuality = random.choice(list(monsterQualities.keys()))
     monType = random.choice(list(monsterTypes.keys()))
-    monDifficulty = monsterQualities[monQuality] + monsterTypes[monType]
+    monDifficulty = (monsterQualities[monQuality] + monsterTypes[monType])
     monName = monQuality + ' ' + monType
     monLevel = random.choice(range(playerCharacter.level,playerCharacter.level+monDifficulty))
-    monHealth = playerCharacter.level * (15 + monDifficulty +  random.choice(range(1, 80)))
+    monHealth = playerCharacter.level * (1 + monDifficulty +  random.choice(range(1, 80)))
     if monLevel == 0:
         monLevel = 1
-    return Monster(monHealth,monLevel,monName)
+    return Monster(monHealth,monLevel,monName,monDifficulty)
 
 
 
 def playerGenerator():
     global playerCharacter
-    playerName = "Greg" #input("What is your name? \n\n")
+    playerName = input("What is your name? \n\n")
     playerCharacter = Player(playerName)
+    return playerCharacter
 
 
 
